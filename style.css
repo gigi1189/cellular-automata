@@ -5,7 +5,7 @@ body {
 
 #layout {
     font-family: monospace;
-    font-size: large;
+    font-size: x-large;
     display: flex;
     height: 100vh;
 }
@@ -14,34 +14,134 @@ body {
     width: 30%;
     padding: 50px;
     color: white;
-    background-color: rgb(45, 43, 49);
+    background-color: #463c48;
     transition: width 0.3s ease;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    scrollbar-width:none;
+}
+
+input[type="range"] {
+    width: 100%;
+    accent-color: #ccc;
+    height: 3px;
+}
+
+#playPauseBtn,
+#resetBtn {
+    font-size: 18px;
+    color: white;
+    background: #333;
+    border: none;
+    padding: 5px;
+    margin: 3px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+
+#ruleSelect {
+    background-color: rgb(60, 58, 66);
+    color: white;
+    border: none;
+    padding: 8px 10px;
+    font-family: monospace;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
 }
 
 #right {
     height: 100vh;
-    flex:1;
+    flex: 1;
     display: flex;
     align-items: center;
-    justify-content: center; 
-    background-color: rgb(160, 120, 116);
+    justify-content: center;
+
+    background-color: #a28a8e;
+    background-image:
+        linear-gradient(rgba(155, 95, 137, 0.217) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(7, 12, 30, 0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
 }
 
-#toggleNav{
-    font-size:large;
+#grid-holder {
+    display: flex;
+    border: 6px solid rgb(255, 255, 255);
+    border-radius: 5px;
+}
+
+#stats {
+    opacity: 0;
+    position: absolute;
+    color: rgba(255, 255, 255, 0.65);
+    font-size: small;
+    margin: 20px;
+    transform: translate(-400px, -350px);
+}
+
+#toggleNav {
+    font-size: large;
     font-weight: bolder;
-    cursor:pointer;
-    color:white;
-    border:none;
+    cursor: pointer;
+    color: white;
+    border: none;
     background-color: #ffffff00;
 }
-#layout.collapsed #ui {
-  width: 0;
+
+#ageInfo,
+#simInfo {
+    cursor: pointer;
+    font-size: 12px;
+    opacity: 0.7;
+    background-color: rgba(128, 128, 128, 0.421);
+    border-radius: 50px;
+    padding: 3px;
 }
+
+#agePopup,
+#simPopup {
+    background: radial-gradient(#b5b7c97a, #7b999c7a);
+    color: white;
+    font-size: small;
+    padding: 8px;
+    border-radius: 5px;
+    display: none;
+}
+
+#ruleBlurb {
+    background: radial-gradient(#b5b7c97a, #7b999c7a);
+    color: white;
+    font-size: small;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#agePopup.show {
+    display: block;
+}
+#simPopup.show {
+    display: block;
+}
+.controls {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#layout.collapsed #ui {
+    width: 0;
+}
+
 #layout.collapsed #ui .controls {
-  opacity: 0;
-  transform: translateX(-10px);
-  transition: 0.2s ease;
-  pointer-events: none;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: 0.2s ease;
+    pointer-events: none;
+}
+
+
+#layout.collapsed #stats {
+    opacity: 100;
+    transition: 0.2s ease;
 }

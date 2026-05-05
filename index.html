@@ -12,18 +12,58 @@
     <div id="layout">
         <div id="ui">
             <button id="toggleNav">☰</button><br>
-
+            <br>
             <div class="controls">
-            <p>Cellular Automata! Yay!</p>
-                <label>Grid Size</label>
-                <input id="gridSize" type="range" min="20" max="200" value="80"> <br>
+                <div>
+                Cellular Automata Sim <span id="simInfo">i</span>
+                <br> <button id="playPauseBtn">▶</button>
+                </div>
+                  <span id="simPopup" class="hidden">
+                    TThis is a simple tool for exploring cellular automata. 
+                    The idea is that each cell lives on a grid, and whether it’s on 
+                    or off (alive or dead, 1 or 0) depends on its previous state and 
+                    the states of its neighboring cells. 
+                    <br>
+                    <br>
+                    This simulation lets you switch between four different rule sets 
+                    (including one I made), visualize cell age, and track density.
+                    You can also interact with it directly by drawing on the grid yourself. 
+                    Try it out!
+                    <br>
+                    <br>
+                    <a target="_blank" href="https://github.com/gigi1189/cellular-automata">View Code</a>
+                </span>
+                <br>Zoom</label>
+                <input id="cellSize" type="range" min="10" max="30" value="10">
                 <label>Speed</label>
                 <input id="speed" type="range" min="1" max="60" value="12"> <br>
-                <button onclick="resetGrid()">Reset</button>
+                <div><label>
+                        <input type="checkbox" id="ageToggle"> Show Age
+                    </label> <span id="ageInfo">i</span><br>
+                </div>
+                <span id="agePopup" class="hidden">
+                    Each living cell has a “lifetime counter.”
+                    When a cell is born, it starts at 0.
+                    Every surviving step increases its age.
+                    Warm colors represent new life and will turn cooler as they get older. 
+                    Leaving this box unchecked will simply show "alive" or "dead" cells,
+                    with no in-between.
+                </span>
+
+                <label>Rules:</label>
+                <select id="ruleSelect">
+                    <option value="conway">Conway (B3/S23)</option>
+                    <option value="highlife">HighLife (B36/S23)</option>
+                    <option value="death">Death (all die)</option>
+                    <option value="gigi">Gigi Rule</option>
+                </select> <br><br>
+
+                <div id="ruleBlurb"></div>
             </div>
         </div>
 
         <div id="right">
+            <div id="stats">meow</div>
             <div id="grid-holder"></div>
         </div>
     </div>
