@@ -1,0 +1,47 @@
+body {
+    margin: 0;
+    overflow: hidden;
+}
+
+#layout {
+    font-family: monospace;
+    font-size: large;
+    display: flex;
+    height: 100vh;
+}
+
+#ui {
+    width: 30%;
+    padding: 50px;
+    color: white;
+    background-color: rgb(45, 43, 49);
+    transition: width 0.3s ease;
+    overflow: hidden;
+}
+
+#right {
+    height: 100vh;
+    flex:1;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    background-color: rgb(160, 120, 116);
+}
+
+#toggleNav{
+    font-size:large;
+    font-weight: bolder;
+    cursor:pointer;
+    color:white;
+    border:none;
+    background-color: #ffffff00;
+}
+#layout.collapsed #ui {
+  width: 0;
+}
+#layout.collapsed #ui .controls {
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: 0.2s ease;
+  pointer-events: none;
+}
