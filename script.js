@@ -67,6 +67,11 @@ function setup() {
         for (let y = 0; y < gridSize; y++) {
             grid[x][y] = Math.round(Math.random());
             nextGrid[x][y] = 0;
+
+            //do not put any cells at the margins
+            if (x==0||y==0||x==gridSize||y==gridSize){
+                grid[x][y]=0;
+            }
         }
     }
 }
@@ -174,7 +179,6 @@ function applyRules(x, y) {
     }
 
     if (rule === "gigi") {
-   
 
     if (alive) {
         // Conway survival rule first
